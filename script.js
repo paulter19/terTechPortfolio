@@ -1,5 +1,5 @@
 async function fetchProducts() {
-    const res = await fetch('/api/get-products');
+    const res = await fetch('get-products');
     const data = await res.json();
   
     const container = document.getElementById('products');
