@@ -7,7 +7,14 @@ import Navigation from './components/Navigation';
 function App() {
   const projects = [
     {
-      title: 'MaxOutPro',
+      title: 'Rivals Sportsbook',
+      description: 'Peer-to-Peer Sports Betting',
+      image: 'https://plus.unsplash.com/premium_photo-1726754570975-cdfec36e7ebd?q=80&w=1714&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      link: 'https://rivalssportsbook.com/',
+      type: 'web'
+    },
+    {
+      title: 'Maxout Pro App',
       description: 'A comprehensive fitness platform for professional trainers and athletes.',
       image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=1200',
       link: 'https://maxoutpro.vercel.app/',
@@ -16,23 +23,16 @@ function App() {
     {
       title: 'OnWay Bookings',
       description: 'Travel booking platform with seamless reservation experience.',
-      image: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&q=80&w=1200',
+      image: 'https://plus.unsplash.com/premium_photo-1661645788141-8196a45fb483?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       link: 'https://onwaybookings.com/',
       type: 'web'
     },
     {
       title: 'ViewPoints',
       description: 'iOS mobile application for discovering and sharing points of interest.',
-      image: 'https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&q=80&w=1200',
+      image: 'https://images.unsplash.com/photo-1512593608871-4ad42476b9db?q=80&w=1325&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       link: 'https://apps.apple.com/us/app/viewpoints/id1077165555',
       type: 'mobile'
-    },
-    {
-      title: 'NUER Professionals Network',
-      description: 'Professional networking platform for NUER community.',
-      image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&q=80&w=1200',
-      link: 'https://www.nuerprofessionalsnetwork.org/',
-      type: 'web'
     },
     {
       title: '35 Partners',
@@ -42,12 +42,12 @@ function App() {
       type: 'web'
     },
     {
-      title: 'Seedware',
-      description: 'Technology solutions and software development services.',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200',
-      link: 'https://www.seedware.net/',
+      title: 'Finnovation Hub',
+      description: 'Finance and Innovation Blog and News.',
+      image: 'https://plus.unsplash.com/premium_photo-1681487769650-a0c3fbaed85a?q=80&w=1855&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      link: 'https://finnovationhub.com/',
       type: 'web'
-    }
+    },
   ];
 
   return (
@@ -67,7 +67,7 @@ function App() {
           </div>
         </div>
 
-        <section id="contact" className="text-center mt-20 scroll-mt-20">
+        {/* <section id="contact" className="text-center mt-20 scroll-mt-20">
           <h2 className="text-3xl font-bold mb-6">Let's Work Together</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
             Looking for a developer who can bring your vision to life? I'm always open to discussing new projects and opportunities.
@@ -78,12 +78,12 @@ function App() {
           >
             Get in Touch
           </a>
-        </section>
+        </section> */}
       </main>
 
       <footer className="bg-gray-900 py-8 mt-20">
         <div className="container mx-auto px-4 text-center text-gray-400">
-          <p>© {new Date().getFullYear()} Your Name. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Paul Ter. All rights reserved.</p>
         </div>
       </footer>
     </div>
