@@ -25,13 +25,13 @@ const Header = () => {
             <Github size={20} />
             <span>GitHub</span>
           </a>
-          <a
+          {/* <a
             href="mailto:contact@example.com"
             className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg transition-colors"
           >
             <Mail size={20} />
             <span>Contact</span>
-          </a>
+          </a> */}
         </div>
       </div>
     </header>

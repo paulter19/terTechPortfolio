@@ -16,7 +16,7 @@ const Navigation = () => {
   const navLinks = [
     { name: 'Home', href: '#home' },
     { name: 'Projects', href: '#projects' },
-    { name: 'Contact', href: '#contact' }
+    /* { name: 'Contact', href: '#contact' } */
   ];
 
   return (
@@ -26,7 +26,7 @@ const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <a href="#home" className="text-xl font-bold text-blue-400">
-            Portfolio
+            Paul Ter Portfolio
           </a>
 
           {/* Desktop Navigation */}
