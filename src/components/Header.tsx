@@ -1,5 +1,5 @@
 import React from 'react';
-import { Code, Mail, Github } from 'lucide-react';
+import { Code, Github, FileText } from 'lucide-react';
 
 const Header = () => {
   return (
@@ -25,13 +25,14 @@ const Header = () => {
             <Github size={20} />
             <span>GitHub</span>
           </a>
-          {/* <a
-            href="mailto:contact@example.com"
+          <a
+            href="/resume.pdf"
+            download
             className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg transition-colors"
           >
-            <Mail size={20} />
-            <span>Contact</span>
-          </a> */}
+            <FileText size={20} />
+            <span>Download Resume</span>
+          </a>
         </div>
       </div>
     </header>

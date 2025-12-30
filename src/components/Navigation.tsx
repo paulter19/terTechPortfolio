@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
 const Navigation = () => {
@@ -16,13 +16,12 @@ const Navigation = () => {
   const navLinks = [
     { name: 'Home', href: '#home' },
     { name: 'Projects', href: '#projects' },
-    /* { name: 'Contact', href: '#contact' } */
+    { name: 'Resume', href: '/resume.pdf', download: true },
   ];
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-gray-900/95 backdrop-blur-sm shadow-lg' : 'bg-transparent'
-    }`}>
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-gray-900/95 backdrop-blur-sm shadow-lg' : 'bg-transparent'
+      }`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <a href="#home" className="text-xl font-bold text-blue-400">
@@ -36,6 +35,7 @@ const Navigation = () => {
                 key={link.name}
                 href={link.href}
                 className="text-gray-300 hover:text-blue-400 transition-colors"
+                {...(link.download ? { download: true } : {})}
               >
                 {link.name}
               </a>
@@ -61,6 +61,7 @@ const Navigation = () => {
                   href={link.href}
                   className="block px-3 py-2 text-gray-300 hover:text-blue-400 transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
+                  {...(link.download ? { download: true } : {})}
                 >
                   {link.name}
                 </a>
