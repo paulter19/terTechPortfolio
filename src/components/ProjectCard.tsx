@@ -1,12 +1,14 @@
-import React from 'react';
-import { ExternalLink, Smartphone, Globe } from 'lucide-react';
+import { ExternalLink, Github, Globe, Smartphone } from 'lucide-react';
 
 interface ProjectCardProps {
   title: string;
   description: string;
   image: string;
   link: string;
+  github?: string;
   type: 'web' | 'mobile';
+  techStack: string[];
+  role: string;
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -14,40 +16,71 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   description,
   image,
   link,
-  type
+  github,
+  type,
+  techStack,
+  role,
 }) => {
   return (
-    <div className="group relative bg-gray-800 rounded-xl overflow-hidden transform hover:-translate-y-1 transition-all duration-300">
-      <div className="aspect-video overflow-hidden">
+    <a
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="project-card glass"
+    >
+      {/* Image container */}
+      <div className="project-image-container">
         <img
           src={image}
           alt={title}
-          className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"
+          className="project-image"
+          loading="lazy"
         />
-      </div>
-      <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        <div className="absolute bottom-0 p-6 w-full">
-          <div className="flex items-center justify-between mb-2">
-            <h3 className="text-xl font-bold">{title}</h3>
-            {type === 'web' ? (
-              <Globe className="text-blue-400" size={20} />
-            ) : (
-              <Smartphone className="text-blue-400" size={20} />
-            )}
-          </div>
-          <p className="text-gray-300 mb-4">{description}</p>
-          <a
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center space-x-2 text-blue-400 hover:text-blue-300 transition-colors"
-          >
-            <span>Visit {type === 'web' ? 'Website' : 'App'}</span>
-            <ExternalLink size={16} />
-          </a>
+        <div className="project-image-overlay" />
+
+        {/* Type badge */}
+        <div className="project-type-badge glass">
+          {type === 'web' ? (
+            <Globe size={14} className="project-type-icon" />
+          ) : (
+            <Smartphone size={14} className="project-type-icon" />
+          )}
+          <span>{type === 'web' ? 'Web' : 'iOS'}</span>
         </div>
       </div>
-    </div>
+
+      {/* Content */}
+      <div className="project-content">
+        <h3 className="project-title">{title}</h3>
+        <p className="project-description">{description}</p>
+        <p className="project-role">
+          <span>Role:</span> {role}
+        </p>
+
+        {/* Tech stack */}
+        <div className="project-tech-stack">
+          {techStack.map((tech) => (
+            <span key={tech} className="project-tech-tag">
+              {tech}
+            </span>
+          ))}
+        </div>
+
+        {/* View Project indicator */}
+        <div className="project-links">
+          <span className="project-link">
+            <ExternalLink size={16} />
+            <span>View Project</span>
+          </span>
+          {github && (
+            <span className="project-link project-link-secondary">
+              <Github size={16} />
+              <span>Source</span>
+            </span>
+          )}
+        </div>
+      </div>
+    </a>
   );
 };
 

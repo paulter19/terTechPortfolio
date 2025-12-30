@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, FileText } from 'lucide-react';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -14,61 +14,58 @@ const Navigation = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
     { name: 'Projects', href: '#projects' },
-    { name: 'Resume', href: '/resume.pdf', download: true },
+    { name: 'About', href: '#about' },
+    { name: 'Contact', href: '#contact' },
   ];
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-gray-900/95 backdrop-blur-sm shadow-lg' : 'bg-transparent'
-      }`}>
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
-          <a href="#home" className="text-xl font-bold text-blue-400">
+    <nav className={`nav ${isScrolled ? 'scrolled' : ''}`}>
+      <div className="container">
+        <div className="nav-inner">
+          <a href="#home" className="nav-logo">
             Paul Ter Portfolio
           </a>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="nav-links">
             {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-gray-300 hover:text-blue-400 transition-colors"
-                {...(link.download ? { download: true } : {})}
-              >
+              <a key={link.name} href={link.href} className="nav-link">
                 {link.name}
               </a>
             ))}
+            <a href="/resume.pdf" download className="btn btn-secondary">
+              <FileText size={16} />
+              <span>Resume</span>
+            </a>
           </div>
 
-          {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-gray-300 hover:text-blue-400"
+            className="nav-mobile-toggle"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
-        {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="block px-3 py-2 text-gray-300 hover:text-blue-400 transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  {...(link.download ? { download: true } : {})}
-                >
-                  {link.name}
-                </a>
-              ))}
-            </div>
+        <div className={`nav-mobile ${isMobileMenuOpen ? 'open' : ''}`}>
+          <div className="nav-mobile-links">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="nav-link"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {link.name}
+              </a>
+            ))}
+            <a href="/resume.pdf" download className="btn btn-secondary">
+              <FileText size={16} />
+              <span>Resume</span>
+            </a>
           </div>
-        )}
+        </div>
       </div>
     </nav>
   );

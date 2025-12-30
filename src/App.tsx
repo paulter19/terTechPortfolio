@@ -1,92 +1,130 @@
-import React from 'react';
-import { ExternalLink, Github, Globe, Smartphone } from 'lucide-react';
-import ProjectCard from './components/ProjectCard';
-import Header from './components/Header';
+import Hero from './components/Hero';
 import Navigation from './components/Navigation';
+import ProjectCard from './components/ProjectCard';
+import About from './components/About';
+import TechStack from './components/TechStack';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
 
 function App() {
   const projects = [
     {
       title: 'Rivals Sportsbook',
-      description: 'Peer-to-Peer Sports Betting',
-      image: 'https://plus.unsplash.com/premium_photo-1726754570975-cdfec36e7ebd?q=80&w=1714&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      description: 'Peer-to-peer sports betting platform enabling users to create and accept wagers directly with each other, eliminating the traditional bookmaker.',
+      image: 'https://plus.unsplash.com/premium_photo-1726754570975-cdfec36e7ebd?q=80&w=1714&auto=format&fit=crop&ixlib=rb-4.1.0',
       link: 'https://rivalssportsbook.com/',
-      type: 'web'
+      type: 'web' as const,
+      techStack: ['React', 'Node.js', 'Firebase', 'Stripe'],
+      role: 'Full-Stack Development & Architecture',
     },
     {
-      title: 'Maxout Pro App',
-      description: 'A comprehensive fitness platform for professional trainers and athletes.',
+      title: 'TradeMetricX',
+      description: 'Trading journal for documenting trades and generating analytical charts including P/L tracking, win/loss ratios, and various day trading performance metrics.',
+      image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=1200',
+      link: 'https://trade-metric-x-web.vercel.app/',
+      type: 'web' as const,
+      techStack: ['React', 'TypeScript', 'Charts.js', 'Vercel'],
+      role: 'Full-Stack Development & UI Design',
+    },
+    {
+      title: 'Maxout Pro',
+      description: 'Comprehensive fitness platform connecting professional trainers with athletes. Features workout tracking, progress analytics, and trainer marketplace.',
       image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=1200',
       link: 'https://maxoutpro.vercel.app/',
-      type: 'web'
+      type: 'iOS' as const,
+      techStack: ['React', 'TypeScript', 'Tailwind', 'Vercel'],
+      role: 'Frontend Development & UI Design',
     },
     {
       title: 'OnWay Bookings',
-      description: 'Travel booking platform with seamless reservation experience.',
-      image: 'https://plus.unsplash.com/premium_photo-1661645788141-8196a45fb483?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      description: 'Travel booking platform streamlining the reservation experience for hotels, flights, and experiences with real-time availability.',
+      image: 'https://plus.unsplash.com/premium_photo-1661645788141-8196a45fb483?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0',
       link: 'https://onwaybookings.com/',
-      type: 'web'
+      type: 'iOS' as const,
+      techStack: ['Next.js', 'PostgreSQL', 'Stripe', 'AWS'],
+      role: 'Full-Stack Development',
     },
     {
       title: 'ViewPoints',
-      description: 'iOS mobile application for discovering and sharing points of interest.',
-      image: 'https://images.unsplash.com/photo-1512593608871-4ad42476b9db?q=80&w=1325&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      description: 'iOS app for discovering and sharing points of interest. Location-based social features with user-generated content and reviews.',
+      image: 'https://images.unsplash.com/photo-1512593608871-4ad42476b9db?q=80&w=1325&auto=format&fit=crop&ixlib=rb-4.1.0',
       link: 'https://apps.apple.com/us/app/viewpoints/id1077165555',
-      type: 'mobile'
+      type: 'mobile' as const,
+      techStack: ['Swift', 'UIKit', 'MapKit', 'Firebase'],
+      role: 'iOS Development',
     },
     {
       title: '35 Partners',
-      description: 'Corporate website for business consulting and partnerships.',
+      description: 'Corporate website for a business consulting firm. Clean, professional design with lead generation and service showcase.',
       image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1200',
       link: 'https://35partners.com/',
-      type: 'web'
+      type: 'web' as const,
+      techStack: ['React', 'CSS', 'Framer Motion'],
+      role: 'Frontend Development & Design',
     },
     {
       title: 'Finnovation Hub',
-      description: 'Finance and Innovation Blog and News.',
-      image: 'https://plus.unsplash.com/premium_photo-1681487769650-a0c3fbaed85a?q=80&w=1855&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      description: 'Finance and innovation publication featuring market insights, startup news, and fintech analysis for industry professionals.',
+      image: 'https://plus.unsplash.com/premium_photo-1681487769650-a0c3fbaed85a?q=80&w=1855&auto=format&fit=crop&ixlib=rb-4.1.0',
       link: 'https://finnovationhub.com/',
-      type: 'web'
+      type: 'web' as const,
+      techStack: ['Next.js', 'MDX', 'CSS', 'Vercel'],
+      role: 'Full-Stack Development',
+    },
+    {
+      title: 'MyBingeBuddy',
+      description: 'Discover popular and trending TV shows and movies. Share what you\'re watching with friends and keep track of your entertainment favorites.',
+      image: 'https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?auto=format&fit=crop&q=80&w=1200',
+      link: 'https://showtrackr.vercel.app/',
+      type: 'web' as const,
+      techStack: ['React', 'TMDB API', 'CSS', 'Vercel'],
+      role: 'Full-Stack Development',
+    },
+    {
+      title: 'Aura Dating App',
+      description: 'Dating website with a unique twist — rate users on a 1-10 scale based on initial perception, attractiveness, and aura before connecting.',
+      image: 'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&q=80&w=1200',
+      link: 'https://www.auradatingapp.com/',
+      type: 'web' as const,
+      techStack: ['React', 'Node.js', 'Firebase', 'CSS'],
+      role: 'Full-Stack Development',
     },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-white">
+    <>
       <Navigation />
-      <div id="home">
-        <Header />
-      </div>
-      
-      <main className="container mx-auto px-4 py-16">
-        <div id="projects" className="mb-16 scroll-mt-20">
-          <h2 className="text-4xl font-bold mb-8 text-center">Featured Projects</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      {/* Hero Section */}
+      <Hero />
+
+      {/* Featured Projects */}
+      <section id="projects" className="section scroll-mt">
+        <div className="container">
+          <div className="text-center" style={{ marginBottom: '4rem' }}>
+            <h2 className="section-title gradient-text">Featured Projects</h2>
+          </div>
+
+          <div className="projects-grid">
             {projects.map((project, index) => (
               <ProjectCard key={index} {...project} />
             ))}
           </div>
         </div>
+      </section>
 
-        {/* <section id="contact" className="text-center mt-20 scroll-mt-20">
-          <h2 className="text-3xl font-bold mb-6">Let's Work Together</h2>
-          <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Looking for a developer who can bring your vision to life? I'm always open to discussing new projects and opportunities.
-          </p>
-          <a
-            href="mailto:contact@example.com"
-            className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-lg transition-colors"
-          >
-            Get in Touch
-          </a>
-        </section> */}
-      </main>
+      {/* About Section */}
+      <About />
 
-      <footer className="bg-gray-900 py-8 mt-20">
-        <div className="container mx-auto px-4 text-center text-gray-400">
-          <p>© {new Date().getFullYear()} Paul Ter. All rights reserved.</p>
-        </div>
-      </footer>
-    </div>
+      {/* Tech Stack */}
+      <TechStack />
+
+      {/* Contact CTA */}
+      <Contact />
+
+      {/* Footer */}
+      <Footer />
+    </>
   );
 }
 
