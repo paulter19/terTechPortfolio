@@ -8,7 +8,7 @@ const Header = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-10"></div>
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center opacity-10"></div>
       </div>
-      
+
       <div className="relative z-10">
         <div className="flex items-center justify-center mb-6">
           <Code size={48} className="text-blue-500" />
@@ -19,7 +19,7 @@ const Header = () => {
         </p>
         <div className="flex items-center justify-center space-x-4">
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/paulter19"
             className="flex items-center space-x-2 bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-lg transition-colors"
           >
             <Github size={20} />
