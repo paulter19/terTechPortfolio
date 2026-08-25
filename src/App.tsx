@@ -52,7 +52,7 @@ function App() {
       type: 'mobile' as const,
       techStack: ['Swift', 'UIKit', 'MapKit', 'Firebase'],
       role: 'iOS Development',
-    },
+    },/* 
     {
       title: '35 Partners',
       description: 'Corporate website for a business consulting firm. Clean, professional design with lead generation and service showcase.',
@@ -61,12 +61,12 @@ function App() {
       type: 'web' as const,
       techStack: ['React', 'CSS', 'Framer Motion'],
       role: 'Frontend Development & Design',
-    },
+    }, */
     {
       title: 'Finnovation Hub',
       description: 'Finance and innovation publication featuring market insights, startup news, and fintech analysis for industry professionals.',
       image: 'https://plus.unsplash.com/premium_photo-1681487769650-a0c3fbaed85a?q=80&w=1855&auto=format&fit=crop&ixlib=rb-4.1.0',
-      link: 'https://finnovationhub.com/',
+      link: 'https://finovationhub-kbagk6qax-pauls-projects-aca34d0f.vercel.app/',
       type: 'web' as const,
       techStack: ['Next.js', 'MDX', 'CSS', 'Vercel'],
       role: 'Full-Stack Development',
